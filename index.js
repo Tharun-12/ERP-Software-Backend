@@ -12,16 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Import routes
-// const contactRoutes = require("./routes/contactRoutes");
-// const distributorRoutes = require("./routes/distributorRoutes");
-// const superStockistRoutes = require("./routes/superstockistRoutes");
-// const dealerRoutes = require("./routes/delarRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 
 // Use routes
-// app.use("/api/contact", contactRoutes);
-// app.use("/api/distributor", distributorRoutes);
-// app.use("/api/super-stockist", superStockistRoutes);
-// app.use("/api/dealer", dealerRoutes);
+app.use("/api/contact", contactRoutes);
+
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {
@@ -42,7 +37,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📝 Contact API: http://localhost:${PORT}/api/contact`);
-  console.log(`📝 Distributor API: http://localhost:${PORT}/api/distributor`);
-  console.log(`📝 Super Stockist API: http://localhost:${PORT}/api/super-stockist`);
-  console.log(`📝 Dealer API: http://localhost:${PORT}/api/dealer`);
 });
